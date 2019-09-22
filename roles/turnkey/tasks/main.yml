@@ -1,0 +1,12 @@
+---
+# tasks file for turnkey
+
+
+- name: Set Authorized key(s) to the authorized keys file
+  become: yes
+  become_user: root
+  authorized_key:
+    exclusive: '{{ is_exclusive }}'
+    user: '{{ ssh_host_user }}'
+    state: present
+    key: '{{ ssh_connection_key }}'

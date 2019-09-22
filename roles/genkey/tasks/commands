@@ -1,0 +1,4 @@
+tower-cli credential modify -n Runestone --credential-type Machine --inputs @req3.jso
+tower-cli job_template modify -n PublicKeyTemplate -e "ssh_key=foobar2"
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDE+ZVIJgemOVT1aWlCdOGDd6h1Dm8jzpqu5Ml4jHgL4QtjG+Y6iWn96+FhWzya0ZWqGVCynAPSiUMGXCkrNbPtR9QbeLmBEkXKBSlSdNTJWmqb9ZpM88DIvDupn1du6ANvHeuY3uZx46lWsHyAzKPWWX/X4KU9BQ/iYyKvb0Vb9OWZkduRlp5kQXV5PjhaRyz8+91Fy76C4+eQJwyccoPMWZwIvXidswSYbZLxJRW5VV14AeksivDvx0Ip8sdx5aoIqLRAUSTxTlPkpw3YJQ1bttN7K071Vms4j8fYBNQRpYuAiQJurqVdgB1uNw6qyfxfUgr7Wld2B3/i0FmPwkWV root@ip-172-31-9-89.us-east-2.compute.interna

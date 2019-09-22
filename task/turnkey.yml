@@ -1,0 +1,91 @@
+---
+
+- name: SSH KEY ROTATION | Generate keys
+  hosts: localhost
+  vars:
+    ssh_key_bits: 4096
+    passphrase: tower
+    ssh_key_comment: Gallowmere
+    is_exclusive: no
+    ssh_host_user: root
+  roles:
+  - name: genkey
+
+- name: SSH KEY ROTATION | Rotate keys
+  hosts: Necropolis
+  vars:
+    ssh_key_bits: 2048
+    passphrase: 83g!8bfu5M5yy84x
+    ssh_key_comment: Gallowmere
+    is_exclusive: no
+    ssh_host_user: root
+  roles:
+  - name: turnkey
+
+- name: SSH KEY ROTATION | Rotate keys
+  hosts: Gallows_Town
+  vars:
+    ssh_key_bits: 2048
+    passphrase: 83g!8bfu5M5yy84x
+    ssh_key_comment: Gallowmere
+    is_exclusive: no
+    ssh_host_user: root
+  roles:
+  - name: turnkey
+
+- name: SSH KEY ROTATION | Rotate keys
+  hosts: Mellowmede
+  vars:
+    ssh_key_bits: 2048
+    passphrase: 83g!8bfu5M5yy84x
+    ssh_key_comment: Gallowmere
+    is_exclusive: no
+    ssh_host_user: root
+  roles:
+  - name: turnkey
+
+- name: SSH KEY ROTATION | Rotate keys
+  hosts: Castle_Peregrin
+  vars:
+    ssh_key_bits: 2048
+    passphrase: 83g!8bfu5M5yy84x
+    ssh_key_comment: Gallowmere
+    is_exclusive: no
+    ssh_host_user: root
+  roles:
+  - name: turnkey
+
+- name: SSH KEY ROTATION | Rotate keys
+  hosts: The_City_of_Madness
+  vars:
+    ssh_key_bits: 2048
+    passphrase: 83g!8bfu5M5yy84x
+    ssh_key_comment: Gallowmere
+    is_exclusive: no
+    ssh_host_user: root
+  roles:
+  - name: turnkey
+
+
+
+- name: SSH KEY ROTATION | update template
+  hosts: localhost
+  vars:
+    ssh_key_bits: 4096
+    passphrase: tower
+    ssh_key_comment: Gallowmere
+    is_exclusive: no
+    ssh_host_user: root
+  tasks:
+  - name: Update private key | Build json
+    set_fact:
+      new_ssh_key:
+       username: "root",
+       ssh_key_unlock: "{{passphrase}}",
+       ssh_key_data: "{{ssh_conection_key}}"
+
+  - name: Update private key | Update key
+    command: tower-cli credential modify -n Runestone --credential-type Machine --inputs {{new_ssh_key}}
+
+  - name: Update publick key in tempaltes
+    command: tower-cli job_template modify -n PublicKeyTemplate -e "ssh_key={{ssh_connection_key}}"
