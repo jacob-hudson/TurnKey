@@ -81,11 +81,11 @@
     set_fact:
       new_ssh_key:
        username: "root"
-       ssh_key_unlock: "{{passphrase}}"
+       ssh_key_unlock: ""
        ssh_key_data: "{{ lookup('file', ssh_key_path) }}"
 
   - name: Update private key | Update key
     command: tower-cli credential modify -n Runestone --credential-type Machine --inputs {{new_ssh_key}}
 
-  - name: Update publick key in tempaltes
+  - name: Update public key in tempaltes
     command: tower-cli job_template modify -n PublicKeyTemplate -e "ssh_key={{ssh_connection_key}}"
