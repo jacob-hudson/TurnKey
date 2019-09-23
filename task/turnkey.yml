@@ -82,7 +82,7 @@
       new_ssh_key:
        username: "root"
        ssh_key_unlock: "{{passphrase}}"
-       ssh_key_data: "{{ssh_connection_key}}"
+       ssh_key_data: "{{ lookup('file', ssh_key_path:L) }}"
 
   - name: Update private key | Update key
     command: tower-cli credential modify -n Runestone --credential-type Machine --inputs {{new_ssh_key}}
