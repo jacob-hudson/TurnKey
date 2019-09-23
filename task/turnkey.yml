@@ -9,7 +9,7 @@
     is_exclusive: no
     ssh_host_user: root
   roles:
-  - name: genkey
+  - { role: genkey }
 
 - name: SSH KEY ROTATION | Rotate keys
   hosts: Necropolis
@@ -20,7 +20,7 @@
     is_exclusive: no
     ssh_host_user: root
   roles:
-  - name: turnkey
+  - { role: turnkey }
 
 - name: SSH KEY ROTATION | Rotate keys
   hosts: Gallows_Town
@@ -31,7 +31,7 @@
     is_exclusive: no
     ssh_host_user: root
   roles:
-  - name: turnkey
+  - { role: turnkey }
 
 - name: SSH KEY ROTATION | Rotate keys
   hosts: Mellowmede
@@ -42,7 +42,7 @@
     is_exclusive: no
     ssh_host_user: root
   roles:
-  - name: turnkey
+  - { role: turnkey }
 
 - name: SSH KEY ROTATION | Rotate keys
   hosts: Castle_Peregrin
@@ -53,7 +53,7 @@
     is_exclusive: no
     ssh_host_user: root
   roles:
-  - name: turnkey
+  - { role: turnkey }
 
 - name: SSH KEY ROTATION | Rotate keys
   hosts: The_City_of_Madness
@@ -64,7 +64,7 @@
     is_exclusive: no
     ssh_host_user: root
   roles:
-  - name: turnkey
+  - { role: turnkey }
 
 
 
