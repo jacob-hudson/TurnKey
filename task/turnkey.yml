@@ -80,8 +80,8 @@
   - name: Update private key | Build json
     set_fact:
       new_ssh_key:
-       username: "root",
-       ssh_key_unlock: "{{passphrase}}",
+       username: "root"
+       ssh_key_unlock: "{{passphrase}}"
        ssh_key_data: "{{ssh_conection_key}}"
 
   - name: Update private key | Update key
