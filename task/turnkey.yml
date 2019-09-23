@@ -8,6 +8,7 @@
     ssh_key_comment: Gallowmere
     is_exclusive: no
     ssh_host_user: root
+    ssh_key_path: ~/.ssh/Gallowmere
   roles:
   - { role: genkey }
 
@@ -77,6 +78,7 @@
     is_exclusive: no
     ssh_host_user: root
   tasks:
+  
   - name: Update private key | Build json
     set_fact:
       new_ssh_key:
