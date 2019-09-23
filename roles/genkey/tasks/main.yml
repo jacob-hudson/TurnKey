@@ -2,11 +2,7 @@
 # tasks file for genkey
 
 - name: Generate a new ssh Key
-  command: ssh-keygen
-    -t rsa
-    -b {{ ssh_key_bits }}
-    -f {{ ssh_key_path }}
-    -C {{ ssh_key_comment }}
+  shell: ssh-keygen -t rsa -b {{ ssh_key_bits }} -N "{{ passphrase }}" -q -f {{ ssh_key_path }} -C {{ ssh_key_comment }}
   args:
     creates: '{{ ssh_key_path }}'
   delegate_to: localhost
