@@ -67,8 +67,6 @@
   roles:
   - { role: turnkey }
 
-
-
 - name: SSH KEY ROTATION | update template
   hosts: localhost
   vars:
@@ -84,7 +82,7 @@
       new_ssh_key:
        username: "root"
        ssh_key_unlock: "{{passphrase}}"
-       ssh_key_data: "{{ssh_conection_key}}"
+       ssh_key_data: "{{ssh_connection_key}}"
 
   - name: Update private key | Update key
     command: tower-cli credential modify -n Runestone --credential-type Machine --inputs {{new_ssh_key}}
