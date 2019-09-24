@@ -106,7 +106,7 @@
 
   - name: Move to file
     copy:
-      content: "{{new_ssh_key|to_yaml}}"
+      content: "{{new_ssh_public_key|to_yaml}}"
       dest:    /tmp/tower_key.yml
 
   - name: Update public key in tempaltes
