@@ -6,7 +6,7 @@
   set_fact:
     ssh_connection_key: "{{ lookup('file', ssh_key_path + '.pub') }}"
   delegate_to: localhost
-  delegate_facts: True
+  delegate_facts: False
 
 - name: Set Authorized key(s) to the authorized keys file
   become: yes
