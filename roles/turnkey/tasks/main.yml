@@ -2,6 +2,12 @@
 # tasks file for turnkey
 
 
+- name: Store then value of the public ssh key
+  set_fact:
+    ssh_connection_key: "{{ lookup('file', ssh_key_path + '.pub') }}"
+  delegate_to: localhost
+  delegate_facts: True
+
 - name: Set Authorized key(s) to the authorized keys file
   become: yes
   become_user: root
