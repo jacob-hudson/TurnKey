@@ -43,7 +43,7 @@
     passphrase: 83g!8bfu5M5yy84x
     ssh_key_comment: Gallowmere
     is_exclusive: no
-    ssh_host_user: roo
+    ssh_host_user: root
     ssh_key_path: ~/.ssh/Gallowmere
   roles:
   - { role: turnkey }
