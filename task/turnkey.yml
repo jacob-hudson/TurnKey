@@ -97,7 +97,7 @@
       dest:    /tmp/tower_key.json
 
   - name: Update private key | Update key
-    command: tower-cli credential modify -n Runestone  --inputs @/tmp/tower_key.json --insecure
+    shell: tower-cli credential modify -n Runestone  --inputs @/tmp/tower_key.json
 
   - name: Update public key | Build json
     set_fact:
@@ -110,4 +110,4 @@
       dest:    /tmp/tower_key.yml
 
   - name: Update public key in tempaltes
-    command: tower-cli job_template modify -n PublicKeyTemplate -e @/tmp/tower_key.yml --insecure
+    shell: tower-cli job_template modify -n PublicKeyTemplate -e @/tmp/tower_key.yml
