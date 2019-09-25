@@ -1,0 +1,14 @@
+---
+
+- name: SSH KEY ROTATION | Testing
+  hosts: "{{ansible_play_hosts}}"
+  vars:
+    ssh_key_bits: 2048
+    passphrase: 83g!8bfu5M5yy84x
+    ssh_key_comment: Gallowmere
+    is_exclusive: no
+    ssh_host_user: root
+    ssh_key_path: ~/.ssh/Gallowmere
+  tasks:
+  - name: Get current date on each host
+    shell: date
