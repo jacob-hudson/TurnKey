@@ -11,6 +11,10 @@
     ssh_key_path: ~/.ssh/Gallowmere
   roles:
   - { role: genkey }
+  tasks:
+  - name: testing extraction
+    pause:
+      minutes: 5
 
 - name: SSH KEY ROTATION | Rotate keys
   hosts: "{{ansible_play_hosts}}"
